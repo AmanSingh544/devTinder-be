@@ -5,10 +5,14 @@
 /.pnp
 .pnp.js
 
+#parel
+.parcel-cache
+/dist
+
 # testing
 /coverage
 
-# production
+# production  
 /build
 
 # misc

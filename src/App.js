@@ -1,8 +1,10 @@
+import Navbar from "./navbar";
+
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <>
+     <Navbar/>
+    </>
   );
 }
 
