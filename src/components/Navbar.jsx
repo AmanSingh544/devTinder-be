@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Navbar() {
   return (
     <div className="flex items-center justify-between bg-white p-4 shadow">
       <div className="flex-1">
-        <a className="text-xl font-semibold text-gray-800">DevTinder</a>
+        <Link to={'/'} className="text-xl font-semibold text-gray-800">DevTinder</Link>
       </div>
       <div className="flex items-center gap-4">
         {/* <div className="relative">
@@ -41,11 +42,11 @@ export default function Navbar() {
             </div>
           </>}
         {isDropdownOpen && (
-          <ul className="absolute right-0 mt-2 w-52 rounded-lg bg-white p-2 shadow-lg">
+          <ul className="absolute right-0 mt-40 w-52 rounded-lg bg-white p-2 shadow-lg">
             <li className="flex items-center justify-between px-4 py-2 hover:bg-gray-100">
-              <a href="#" className="text-sm text-gray-700">
+              <Link to={"/profile"} className="text-sm text-gray-700">
                 Profile
-              </a>
+              </Link>
               <span className="ml-2 rounded bg-blue-500 px-2 py-1 text-xs text-white">
                 New
               </span>

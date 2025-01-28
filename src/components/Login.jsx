@@ -22,9 +22,10 @@ const Login = () => {
       });
       console.log(response);
       dispatch(adduser(response.data?.data)); // saving in the store
-      navigate("/feed");
+      navigate("/");
     }
     catch (err) {
+      navigate("/login");
       console.error(err)
     };
   }

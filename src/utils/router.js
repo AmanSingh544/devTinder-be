@@ -11,7 +11,7 @@ function RoutesList() {
         <Routes>
           <Route path="/" element={<Body />}>
             {/* below are the children routes of parent route Body */}
-            <Route path="/feed" element={<Feed/>} />
+            <Route path="/" element={<Feed/>} />
             <Route path="login" element={<Login />} />
             <Route path="profile" element={<Profile />} />
           </Route>
