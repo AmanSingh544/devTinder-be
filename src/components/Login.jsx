@@ -4,11 +4,13 @@ import { useDispatch } from 'react-redux';
 import { adduser } from '../slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/constant';
+import { showToast } from '../slices/toastSlice';
 
 const Login = () => {
 
   const [emailId, setEmailId] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [error, setError] = React.useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,11 +24,13 @@ const Login = () => {
       });
       console.log(response);
       dispatch(adduser(response.data?.data)); // saving in the store
+      dispatch(showToast({success:"User logged in",error:'',info:''}));
       navigate("/");
     }
     catch (err) {
       navigate("/login");
-      console.error(err)
+      setError(err?.response?.data?.message || "Something went wrong !!");
+      console.error(err);
     };
   }
 
@@ -87,6 +91,7 @@ const Login = () => {
             </div>
 
           </div>
+          <p className='text-sm font-medium text-red-700'>{error}</p>
           <div className="mt-4 flex justify-end">
             <button onClick={handleLogin } className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
               Login

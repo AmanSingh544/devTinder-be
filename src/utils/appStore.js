@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { removeUser, adduser }  from "../slices/userSlice";
 import UserReducer from "../slices/userSlice";
+import FeedReducer from "../slices/feedSlice";
+import ToastReducer from "../slices/toastSlice";
 
 const store = configureStore({
     reducer:{
-        user : UserReducer
+        user : UserReducer,
+        feed : FeedReducer,
+        toast: ToastReducer,
     },
 }); 
 

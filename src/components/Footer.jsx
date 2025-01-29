@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <>
-            <footer className="bg-gray-200 text-gray-800 rounded p-10 text-center fixed bottom-0 w-full">
+            <footer className="bg-gray-200 text-gray-800 rounded p-5 text-center fixed bottom-0 w-full">
                 {/* Navigation Links */}
                 <nav className="grid grid-flow-col gap-4 justify-center">
                     <a className="text-sm text-gray-600 hover:text-gray-800 transition-colors">About us</a>
@@ -13,7 +13,7 @@ const Footer = () => {
                 </nav>
 
                 {/* Social Icons */}
-                <div className="mt-6 flex justify-center gap-4">
+                <div className="mt-2 flex justify-center gap-4">
                     <a className="text-gray-600 hover:text-gray-800 transition-colors">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const Footer = () => {
                 </div>
 
                 {/* Footer Text */}
-                <aside className="mt-6">
+                <aside className="mt-2">
                     <p className="text-sm text-gray-600">
                         Copyright © {new Date().getFullYear()} - All rights reserved by ACME Industries Ltd
                     </p>

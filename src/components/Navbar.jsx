@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({handleLogout}) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const handleLogoutClick = () => {
+    setIsDropdownOpen(false);
+    handleLogout();
+  }
 
   const user = useSelector(state => state.user); // using the stored data from the store
 
@@ -57,9 +62,9 @@ export default function Navbar() {
               </a>
             </li>
             <li className="px-4 py-2 hover:bg-gray-100">
-              <a href="#" className="text-sm text-gray-700">
+              <Link onClick={handleLogoutClick} className="text-sm text-gray-700">
                 Logout
-              </a>
+              </Link>
             </li>
           </ul>
         )}
