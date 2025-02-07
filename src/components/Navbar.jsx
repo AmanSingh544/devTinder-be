@@ -15,11 +15,11 @@ export default function Navbar({handleLogout}) {
   }
 
   const user = useSelector(state => state.user); // using the stored data from the store
-
+  console.log(user,'user in store')
   return (
     <div className="flex items-center justify-between bg-white p-4 shadow">
       <div className="flex-1">
-        <Link to={'/'} className="text-xl font-semibold text-gray-800">DevTinder</Link>
+        <Link to={'/feed'} className="text-xl font-semibold text-gray-800">DevTinder</Link>
       </div>
       <div className="flex items-center gap-4">
         {/* <div className="relative">
@@ -57,9 +57,14 @@ export default function Navbar({handleLogout}) {
               </span>
             </li>
             <li className="px-4 py-2 hover:bg-gray-100">
-              <a href="#" className="text-sm text-gray-700">
-                Settings
-              </a>
+              <Link to={"/requests"} className="text-sm text-gray-700">
+                Requests
+              </Link>
+            </li>
+            <li className="px-4 py-2 hover:bg-gray-100">
+              <Link to={"/friends"} className="text-sm text-gray-700">
+                Friends
+              </Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-100">
               <Link onClick={handleLogoutClick} className="text-sm text-gray-700">

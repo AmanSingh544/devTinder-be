@@ -25,7 +25,7 @@ const Login = () => {
       console.log(response);
       dispatch(adduser(response.data?.data)); // saving in the store
       dispatch(showToast({success:"User logged in",error:'',info:''}));
-      navigate("/");
+      navigate("/feed");
     }
     catch (err) {
       navigate("/login");

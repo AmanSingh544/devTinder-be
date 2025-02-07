@@ -8,6 +8,7 @@ import Card from './Card';
 const Feed = () => {
   const dispatch = useDispatch();
   const readFeed = useSelector(state => state.feed);
+  console.log(readFeed)
 
   const fetchFeed = async () => {
     try {
@@ -15,7 +16,7 @@ const Feed = () => {
         withCredentials: true // to save cookies in browser
       });
       dispatch(addFeed(res?.data?.data));
-      console.log(res)
+      console.log(...res?.data?.data)
     }
     catch (err) {
       console.error(err);
@@ -26,8 +27,22 @@ const Feed = () => {
     fetchFeed();
   }, []);
 
+  const handleUserAction = () => {
+    fetchFeed();
+  };
+  
   return (
-    <div><Card user={readFeed}/></div>
+    <>
+    {
+      readFeed?.map( item => {
+        return (
+          <div>
+            <Card key={item._id} user={item} onUserAction={handleUserAction}/>
+          </div>
+        )
+      })
+    }
+    </>
   )
 }
 

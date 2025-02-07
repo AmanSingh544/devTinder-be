@@ -4,13 +4,11 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import { addFeed } from "../slices/feedSlice";
-import ToastNotification from "./Toast";
 import { showToast } from "../slices/toastSlice";
 
 const EditProfile = (props) => {
     const userdata = props.user;
     const [user, setUser] = useState(userdata);
-    const [toastInfo, setToastInfo] = useState({});
 
     const dispatch = useDispatch();
 
@@ -154,7 +152,6 @@ const EditProfile = (props) => {
             <div className="p-4 flex items-center justify-center">
               <Card user={{ ...user }} />
             </div>
-            <ToastNotification toastInfo={toastInfo} />
           </div>
         </div>
       );

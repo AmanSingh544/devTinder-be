@@ -7,15 +7,13 @@ import { BASE_URL } from '../utils/constant';
 import { useDispatch, useSelector } from 'react-redux';
 import { adduser, removeUser } from '../slices/userSlice';
 import { removeFeed } from '../slices/feedSlice';
-import ToastNotification from './Toast';
 import { showToast } from '../slices/toastSlice';
 
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [toastInfo, setToastInfo] = React.useState({});
 
-  // check if user present in store or not
+ // check if user present in store or not
   const user = useSelector((state) => state.user);
   const fetchUser = async () => {
     try {
